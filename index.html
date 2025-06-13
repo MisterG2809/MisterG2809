@@ -2,182 +2,160 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Portfolio – Web Designer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gerardo Villegas – Web Designer</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
     }
-    header {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      padding: 2rem;
+
+    .hero {
+      background: url(img/geraweb2.jpg) center/cover no-repeat;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
-    header h1 {
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      z-index: 2;
+      color: #f5c518;
+    }
+
+    .hero h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-    }
-    nav {
-      background: #111;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
+      font-weight: 600;
+      animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #f5c518;
+      width: 20ch;
       margin: auto;
     }
-    .about {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 20ch }
     }
-    .about img {
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
-    .about div {
-      flex: 1;
+
+    .section-title {
+      color: #f5c518;
+      margin-bottom: 2rem;
     }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+
+    .btn-contact {
+      background-color: transparent;
+      border: 2px solid #f5c518;
+      color: #f5c518;
+      transition: 0.3s;
     }
-    .project {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    .btn-contact:hover {
+      background-color: #f5c518;
+      color: #000;
+    }
+
+    .project-card {
+      background-color: #2b2b2b;
+      border: none;
+      color: #fff;
       transition: transform 0.3s ease;
     }
-    .project:hover {
-      transform: translateY(-5px);
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 15px rgba(245, 197, 24, 0.3);
     }
-    .project img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .contact form {
-      display: flex;
-      flex-direction: column;
-    }
-    .contact input, .contact textarea {
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    .contact button {
-      background: #203a43;
-      color: white;
-      border: none;
-      padding: 1rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .contact button:hover {
-      background: #2c5364;
-    }
+
     footer {
+      background-color: #2b2b2b;
+      color: #aaa;
       text-align: center;
       padding: 2rem;
-      background: #111;
-      color: white;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Tu Nombre</h1>
-    <p>Diseñador Web & Desarrollador Frontend</p>
-  </header>
 
-  <nav>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <div class="about">
-      <img src="https://via.placeholder.com/300" alt="Tu foto">
-      <div>
-        <p>
-          ¡Hola! Soy un diseñador web apasionado por crear experiencias digitales atractivas, intuitivas y funcionales. Tengo experiencia en HTML, CSS, JavaScript, UI/UX y herramientas modernas como Figma, TailwindCSS y React.
-        </p>
-        <p>
-          Me encanta colaborar con clientes y equipos creativos para llevar ideas al mundo real con diseño limpio y responsive.
-        </p>
-      </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Gerardo Villegas</h1>
+      <p class="mt-3 text-white">Web Designer & Developer</p>
+      <a href="#contacto" class="btn btn-contact mt-4">Contacto</a>
     </div>
   </section>
 
-  <section id="proyectos">
-    <h2>Mis Proyectos</h2>
-    <div class="projects">
-      <div class="project">
-        <img src="https://via.placeholder.com/400x250" alt="Proyecto 1">
-        <h3>Landing Page Creativa</h3>
-        <p>Diseño moderno con animaciones y formulario interactivo.</p>
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="container py-5" data-aos="fade-up">
+    <h2 class="section-title text-center">Sobre mí</h2>
+    <p class="text-center">Soy Gerardo Villegas, diseñador y desarrollador web. Me enfoco en crear sitios visuales impactantes y funcionales que conectan con las personas.</p>
+  </section>
+
+  <!-- Proyectos -->
+<section id="proyectos" class="container py-5" data-aos="fade-up">
+    <h2 class="section-title text-center">Proyectos Destacados</h2>
+    <div class="row g-4">
+      <!-- Proyecto 1 -->
+      <div class="col-md-6" data-aos="fade-right">
+        <a href="https://psicologiainfantilmm.github.io" target="_blank" style="text-decoration: none;">
+          <div class="card project-card p-4 h-100">
+            <h5 class="text-warning">Psicología Infantil</h5>
+            <p>Landing page profesional con enfoque en psicología, responsive y visualmente atractiva.</p>
+          </div>
+        </a>
       </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/400x250" alt="Proyecto 2">
-        <h3>Portafolio Personal</h3>
-        <p>Desarrollado con HTML, CSS y un toque de JavaScript puro.</p>
-      </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/400x250" alt="Proyecto 3">
-        <h3>Diseño UI para App</h3>
-        <p>Mockups en Figma con enfoque en usabilidad y estética.</p>
-      </div>
+      
+
+  </section>
+
+
+<!-- Contacto -->
+<section id="contacto" class="container py-5" data-aos="fade-up">
+    <h2 class="section-title text-center">Contáctame</h2>
+    <p class="text-center">¿Tienes un proyecto o idea? Estoy disponible para colaborar.</p>
+    <div class="text-center mt-4">
+      <a href="mailto:miste.g2809@gmail.com" class="btn btn-contact btn-lg">
+        Escríbeme: mister.g2809@gmail.com
+      </a>
     </div>
   </section>
-
-  <section id="contacto" class="contact">
-    <h2>Contacto</h2>
-    <form onsubmit="enviarFormulario(); return false;">
-      <input type="text" placeholder="Tu nombre" required />
-      <input type="email" placeholder="Tu email" required />
-      <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-      <button type="submit">Enviar Mensaje</button>
-    </form>
-  </section>
-
+  
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Tu Nombre – Web Designer</p>
+    <p>&copy; 2025 Gerardo Villegas – Todos los derechos reservados</p>
   </footer>
-
+  
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    function enviarFormulario() {
-      alert("Gracias por contactarme. ¡Te responderé pronto!");
-    }
+    AOS.init({ duration: 1000, once: true });
   </script>
+  
 </body>
 </html>
