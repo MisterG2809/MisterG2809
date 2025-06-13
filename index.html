@@ -13,10 +13,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --amarillo: #f5c518;
+      --gris-fondo: #0d0d0d;
+      --gris-claro: #2b2b2b;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #0d0d0d;
+      background-color: var(--gris-fondo);
       color: #f0f0f0;
+      margin: 0;
+      padding: 0;
     }
 
     .hero {
@@ -39,18 +47,23 @@
 
     .hero-content {
       z-index: 2;
-      color: #f5c518;
+      color: var(--amarillo);
+      padding: 0 1rem;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 6vw, 3.5rem);
       font-weight: 600;
       animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #f5c518;
+      border-right: 2px solid var(--amarillo);
       width: 20ch;
       margin: auto;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 3vw, 1.25rem);
     }
 
     @keyframes typing {
@@ -63,39 +76,63 @@
     }
 
     .section-title {
-      color: #f5c518;
+      color: var(--amarillo);
       margin-bottom: 2rem;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      text-align: center;
     }
 
     .btn-contact {
       background-color: transparent;
-      border: 2px solid #f5c518;
-      color: #f5c518;
+      border: 2px solid var(--amarillo);
+      color: var(--amarillo);
       transition: 0.3s;
     }
 
     .btn-contact:hover {
-      background-color: #f5c518;
+      background-color: var(--amarillo);
       color: #000;
+      box-shadow: 0 0 10px var(--amarillo);
     }
 
     .project-card {
-      background-color: #2b2b2b;
+      background-color: var(--gris-claro);
       border: none;
       color: #fff;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 2rem;
+      border-radius: 12px;
     }
 
     .project-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       box-shadow: 0 0 15px rgba(245, 197, 24, 0.3);
     }
 
+    .project-card h5 {
+      color: var(--amarillo);
+    }
+
+    .project-card p {
+      color: #ddd;
+    }
+
     footer {
-      background-color: #2b2b2b;
+      background-color: var(--gris-claro);
       color: #aaa;
       text-align: center;
       padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+        width: 100%;
+        white-space: normal;
+        border-right: none;
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -112,31 +149,28 @@
 
   <!-- Sobre mí -->
   <section id="sobre-mi" class="container py-5" data-aos="fade-up">
-    <h2 class="section-title text-center">Sobre mí</h2>
-    <p class="text-center">Soy Gerardo Villegas, diseñador y desarrollador web. Me enfoco en crear sitios visuales impactantes y funcionales que conectan con las personas.</p>
+    <h2 class="section-title">Sobre mí</h2>
+    <p class="text-center px-3">Soy Gerardo Villegas, diseñador y desarrollador web. Me enfoco en crear sitios visuales impactantes y funcionales que conectan con las personas.</p>
   </section>
 
   <!-- Proyectos -->
-<section id="proyectos" class="container py-5" data-aos="fade-up">
-    <h2 class="section-title text-center">Proyectos Destacados</h2>
-    <div class="row g-4">
-      <!-- Proyecto 1 -->
-      <div class="col-md-6" data-aos="fade-right">
+  <section id="proyectos" class="container py-5" data-aos="fade-up">
+    <h2 class="section-title">Proyectos Destacados</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12" data-aos="fade-up">
         <a href="https://psicologiainfantilmm.github.io" target="_blank" style="text-decoration: none;">
-          <div class="card project-card p-4 h-100">
-            <h5 class="text-warning">Psicología Infantil</h5>
+          <div class="project-card">
+            <h5>Psicología Infantil</h5>
             <p>Landing page profesional con enfoque en psicología, responsive y visualmente atractiva.</p>
           </div>
         </a>
       </div>
-      
-
+    </div>
   </section>
 
-
-<!-- Contacto -->
-<section id="contacto" class="container py-5" data-aos="fade-up">
-    <h2 class="section-title text-center">Contáctame</h2>
+  <!-- Contacto -->
+  <section id="contacto" class="container py-5" data-aos="fade-up">
+    <h2 class="section-title">Contáctame</h2>
     <p class="text-center">¿Tienes un proyecto o idea? Estoy disponible para colaborar.</p>
     <div class="text-center mt-4">
       <a href="mailto:miste.g2809@gmail.com" class="btn btn-contact btn-lg">
@@ -156,6 +190,6 @@
   <script>
     AOS.init({ duration: 1000, once: true });
   </script>
-  
 </body>
 </html>
+
